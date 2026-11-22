@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> BatanGuide | Batangas Tourism Guide </title>
+
+<style>
+    /* Site colors and shared defaults */
+    :root {
+    --forest: #073B75;
+    --leaf: #F36B21;
+    --gold: #FFC928;
+    --cream: #e0dad7;
+    --muted: #687786;
+    }
+
+    *   {
+        box-sizing: border-box;
+        margin: 0;
+        padding: -1;
+        scroll-behavior: smooth;
+    }
+
+    body {
+        margin: 0;
+        background: white;
+        color: #26352d;
+        font-family: "Segoe UI", Arial, sans-serif;
+        line-height: 1.6;
+    }
+
+    a {
+        color: inherit;
+    }
+
+    /* Navigation */
+header {
+    align-items: center;
+    background: var(--forest);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 16px 7%;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-decoration: none;
+}
+
+.logo img {
+    width: 42px;
+    height: 42px;
+    border-radius: 25%;
+    object-fit: contain;
+}
+
+/* Menu Button */
+.menu-button {
+    background: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 20px;
+    padding: 5px;
+    align-items: right;
+}
+
+/* Dropdown Navigation */
+nav {
+    background: rgb(95, 140, 200);
+    display: none;
+    flex-direction: column;
+    gap: 0;
+    min-width: 200px;
+    position: absolute;
+    right: 7%;
+    top: 100%;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    border-radius: 0 0 8px 8px;
+    overflow: hidden;
+}
+
+nav.active {
+    display: flex;
+}
+
+nav a {
+    color: white;
+    font-size: 14px;
+    padding: 13px 20px;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+}
+
+nav a:hover,
+nav a:focus-visible {
+    background: var(--gold);
+    color: var(--forest);
+}
+
+    /* Hero banner */
+   .hero {
+    display: flex;
+    align-items: center;
+    min-height: 400px; 
+    padding: 45px 8%;
+    background: linear-gradient(rgba(7, 59, 117, 0.35), rgba(7, 59, 117, 0.35)),
+                url("Untitled Design (9).png") right center / cover no-repeat;
+    color: white;
+}
+
+    .hero-content {
+    max-width: 520px;
+}
+
+.hero-content .eyebrow {
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+ .hero-content p {
+    color: white;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+
+.hero-content h1 {
+    font-family: "Arial Black", Arial, sans-serif !important;
+    color: var(--forest);
+    font-size: clamp(36px, 4.5vw, 54px); /* Scaled down so it doesn't push the banner taller */
+    line-height: 1.1;
+    margin: 10px 0 14px;
+    text-shadow: 0 2px 6px rgba(255, 255, 255, 0.4);
+}
+
+    
+   .hero-content a {
+    display: inline-block;
+    background: white;
+    color: var(--forest);
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.hero-content a:hover {
+    background: var(--gold);
+    transform: translateY(-3px);
+}
+
+    /* Shared section headings and spacing */
+    section {
+        padding: 76px 8%;
+    }
+
+    .section-title {
+        margin: 0 auto 36px;
+        max-width: 650px;
+        text-align: center;
+    }
+
+    .section-title h2 {
+        background: linear-gradient(45deg, rgb(2, 82, 2), rgb(0, 118, 177), rgb(255, 94, 0) );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;   
+        background-clip: text;
+        font-size: clamp(28px, 4vw, 38px);
+        letter-spacing: -.5px;
+        line-height: 1.2;
+        margin-bottom: 10px;
+    }
+
+    .section-title p {
+        color: var(--muted);
+    }
+
+    /* About Batangas */
+     
+    .overview-header{
+        background: linear-gradient(45deg, rgb(2, 82, 2), rgb(0, 118, 177), rgb(255, 94, 0) );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;   
+        background-clip: text;
+        font-size: clamp(28px, 4vw, 38px);
+        letter-spacing: -.5px;
+        line-height: 1.2;
+        margin-bottom: 10px;
+        margin: auto;
+        max-width: 700px;
+        text-align: center;
+    }
+
+
+    .overview-content {
+        line-height: 1.9;
+        color: var(--forest) !important;
+        font-size: 20px;
+        margin: auto;
+        max-width: 1000px;
+        text-align: justify;
+        
+    }
+    /* Destination search and cards */
+    .search-container {
+        margin-bottom: 30px;
+        text-align: center;
+    }
+
+    .search-container input {
+        background: white;
+        border: 1px solid #d7ddd7;
+        border-radius: 5px;
+        font: inherit;
+        max-width: 460px;
+        outline: none;
+        padding: 13px 16px;
+        width: 100%;
+    }
+
+    .search-container input:focus {
+        border-color: var(--leaf);
+        box-shadow: 0 0 0 3px rgba(49, 91, 67, .12);
+    }
+
+    .destination-grid {
+        display: grid;
+        gap: 24px;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+
+    .card {
+        background: white;
+        border-radius: 9px;
+        box-shadow: 0 5px 20px rgba(29, 49, 38, .08);
+        overflow: hidden;
+        transition: box-shadow .25s, transform .25s;
+    }
+
+    .card:hover {
+        box-shadow: 0 12px 28px rgba(29, 49, 38, .14);
+        transform: translateY(-5px);
+    }
+
+    .card img {
+        display: block;
+        height: 205px;
+        object-fit: cover;
+        width: 100%;
+    }
+
+    .card-content {
+        padding: 21px;
+    }
+
+    .card-content h3 {
+        color: var(--forest);
+        font-size: 20px;
+        line-height: 1.3;
+        margin-bottom: 8px;
+    }
+
+    .card-content p {
+        color: #657067;
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+    .category {
+        background: #e8eee8;
+        border-radius: 20px;
+        color: var(--leaf);
+        display: inline-block;
+        font-size: 11px;
+        font-weight: 700;
+        margin-bottom: 11px;
+        padding: 5px 10px;
+    }
+
+    .card-content button,
+    .card-content .button-link {
+        background: var(--forest);
+        color: rgb(246, 245, 245);
+        font-size: 13px;
+        margin-top: 15px;
+        padding: 10px 16px;
+    }
+
+    .card-content button:hover,
+    .card-content .button-link:hover {
+        background: var(--gold);
+        color: var(--forest);
+    }
+
+    .empty-state {
+        color: var(--cream);
+        display: none;
+        grid-column: 1 / -1;
+        padding: 24px;
+        text-align: center;
+    }
+
+    /* Local food */
+    .food {
+        background: #e9eee8;
+    }
+
+    /* Travel tips */
+.tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+}
+
+.tip {
+    background-color: #ffffff !important;
+    border: 2px solid rgb(44, 48, 52) !important;
+    border-color: #e9eee8 !important;
+    border-radius: 12px !important;
+    padding: 28px 22px !important;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tip:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.16) !important;
+}
+
+    .section-border {
+    width: 100%;
+    height: 36px; /* Adjust height if you want the strip thicker or thinner */
+    background: url("border.png") bottom center / cover no-repeat;
+    display: block;
+}
+
+#about-us {
+    background-color: #ffffff !important;
+    color: #26352d !important;
+    padding: 45px 3% !important;
+}
+
+.about-us-content,
+.about-us-content-format {
+    max-width: none !important;
+    width: 100% !important;
+}
+
+.about-us-content {
+    color: var(--forest) !important;
+    margin: 0 0 6px 0 !important;
+}
+
+.about-us-content h2 {
+    font-size: 23px;
+    margin-bottom: 4px;
+}
+
+.about-us-content-format {
+    color: #526273 !important;
+    margin: 0 0 22px 0 !important;
+    line-height: 1.8;
+    text-align: justify;
+    font-size: 16px;
+}
+
+    .contact-content {
+        flex: 1.5;
+        background: white;
+        padding: 21px;
+        border-radius: 8px;
+        box-shadow: 0 5px 20px rgba(29, 49, 38, .08);
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .contact-content h3 {
+        color: var(--forest);
+        font-size: 20px;
+        line-height: 1.3;
+        margin-bottom: 8px;
+    }
+
+    .contact-content p {
+        color: #657067;
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+    .form-group {
+        text-align: left;
+        margin-bottom: 15px;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    .form-group textarea {
+        resize: vertical;
+    }
+
+    .contact-content button {
+        background: var(--forest);
+        color: white;
+        font-size: 14px;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .contact-content button:hover {
+        background: var(--gold);
+        color: var(--forest);
+    }
+
+    /* Footer */
+    footer {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    margin-bottom: -80px; /* Pulls it down to eliminate the white gap at the very bottom */
+    background: var(--forest);
+    color: white;
+    text-align: center;
+    padding: 35px 15px;
+    line-height: 1.9;
+}
+    footer h2 {
+        font-size: 20px;
+        letter-spacing: 1px;
+    }
+
+    footer p {
+        font-size: 13px;
+    }
+
+    /* Destination details dialog */
+    .modal {
+        align-items: center;
+        background: rgba(8, 25, 20, .68);
+        display: none;
+        inset: 0;
+        justify-content: center;
+        padding: 20px;
+        position: fixed;
+        z-index: 20;
+    }
+
+    .modal[aria-hidden="false"] {
+        display: flex;
+    }
+
+    .modal-content {
+        background: white;
+        border-radius: 10px;
+        max-width: 480px;
+        padding: 30px;
+        position: relative;
+        width: 100%;
+    }
+
+    .modal-content h2 {
+        color: var(--forest);
+        margin-bottom: 12px;
+        padding-right: 24px;
+    }
+
+    .modal-content p {
+        color: var(--muted);
+    }
+
+    .modal-close {
+        background: none;
+        border: 0;
+        color: var(--forest);
+        cursor: pointer;
+        font-size: 26px;
+        line-height: 1;
+        position: absolute;
+        right: 16px;
+        top: 14px;
+    }
+
+    /* Smaller screens */
+    @media (max-width: 700px) {
+        header {
+            align-items: flex-start;
+            flex-direction: column;
+            gap: 12px;
+            padding: 15px 6%;
+        }
+
+        nav {
+            gap: 9px 18px;
+        }
+
+        nav a {
+            font-size: 13px;
+        }
+
+        .hero {
+             min-height: 350px;
+        height: auto;
+        padding: 55px 7%;
+        background-position: center;
+        }
+
+        .hero-content h1 {
+            font-size: 40px;
+        }
+
+        .hero-content p {
+        font-size: 14px;
+    } 
+
+        section {
+            padding: 56px 6%;
+        }
+    }
+
+    /* Respect visitors who prefer less motion */
+    @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+            scroll-behavior: auto !important;
+            transition-duration: .01ms !important;
+        }
+    }
+</style>
+</head>
+    
+<body>
+
+<!-- NAVIGATION -->
+<header>
+    <a class="logo" href="#home">
+    <img src="logo.png.jpg" alt="BatanGuide Logo">
+    <span>BATANGUIDE</span>
+</a>
+
+    <button class="menu-button" id="menuButton"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="navigation">
+        &#9776;
+    </button>
+
+    <nav id="navigation">
+        <a href="#home">Home</a>
+        <a href="#overview">Overview</a>
+        <a href="#destinations">Destinations</a>
+        <a href="#food">Local Delicacies</a>
+        <a href="#tips">Travel Tips</a>
+        <a href="#about-us">About Us</a>
+    </nav>
+</header>
+
+<!-- HOME -->
+<div class="hero" id="home">
+    <div class="hero-content">
+        <span class="eyebrow">Your island-to-highlands escape</span>
+        <h1>Welcome to BatanGuide!</h1>
+        <p>Discover the wonders of Batangas, from its stunning beaches and scenic landscapes to its rich history and local flavors. Uncover hidden gems, embrace new experiences, and immerse yourself in its vibrant culture. Your next adventure starts here—explore Batangas with BatanGuide!</p>
+
+        <a href="#destinations">Explore Destinations</a>
+    </div>
+</div>
+
+<!-- OVERVIEW -->
+<section id="overview">
+    <div class="overview-header">
+        <h2>SINSAY BATANGAS</h2>
+    </div>
+
+    <div class="section-title">
+        <p>Discover the province beyond the ordinary.</p>
+    </div>
+
+    <div class="overview-content">
+        <p>
+           Discover the captivating charm of Batangas, where pristine beaches, remarkable historical landmarks, mouthwatering local delicacies, and unforgettable destinations await. From its breathtaking natural landscapes to its rich cultural heritage, every corner of the province offers something unique to experience. BatanGuide is a tourism website designed to be your gateway to discovering the wonders of Batangas, helping visitors uncover its hidden gems, appreciate its vibrant culture, and explore the many experiences that make the province truly worth visiting. Whether you are seeking adventure, relaxation, or a deeper connection with local traditions, let BatanGuide guide you through the beauty and treasures of Batangas.
+        </p>
+    </div>
+</section>
+
+
+<!-- DESTINATIONS -->
+<section id="destinations">
+
+    <div class="section-title">
+        <h2>Explore Destinations</h2>
+        <p>Find your next adventure in Batangas.</p>
+    </div>
+
+    <div class="search-container">
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search tourist destinations...">
+    </div>
+
+    <div class="destination-grid" id="destinationGrid">
+
+        <!-- CHURCHES -->
+        <div class="card" data-name="Minor Basilica and Parish of St. Martin of Tours Taal Church">
+            <img src="https://tse4.mm.bing.net/th/id/OIP.S176EHkfbzMD9yzUu0DN8gHaE8?r=0&pid=Api&h=220&P=0"
+            alt="Minor Basilica and Parish of St. Martin of Tours">
+            <div class="card-content">
+                <span class="category">Church &bull; Taal</span>
+                <h3>Minor Basilica and Parish of St. Martin of Tours</h3>
+                <p>
+                    The largest Catholic church in the Philippines and Asia, standing at the heart of Taal Heritage Town.
+                </p>
+                <button type="button" data-place="Minor Basilica and Parish of St. Martin of Tours">
+                    Learn More
+                </button>
+            </div>
+        </div>
+
+        <div class="card" data-name="Parish and International Shrine of St. Padre Pio Santo Tomas Church">
+            <img src="https://tse3.mm.bing.net/th/id/OIP.z8g0cY5gLOFJlISETLcZhQHaEK?r=0&pid=Api&h=220&P=0"
+            alt="Parish and International Shrine of St. Padre Pio">
+            <div class="card-content">
+                <span class="category">Church &bull; Santo Tomas</span>
+                <h3>Parish and International Shrine of St. Padre Pio</h3>
+                <p>
+                    A peaceful pilgrimage shrine known for its open-air native Filipino architecture and prayer spaces.
+                </p>
+                <button type="button" data-place="Parish and International Shrine of St. Padre Pio">
+                    Learn More
+                </button>
+            </div>
+        </div>
+
+        <div class="card" data-name="Montemaria International Pilgrimage Conference Center Batangas City">
+            <img src="https://tse2.mm.bing.net/th/id/OIP.nU6Gz5i36Xghow7kJ0KQpAHaE8?r=0&pid=Api&h=220&P=0"
+            alt="Montemaria International Pilgrimage & Conference Center">
+            <div class="card-content">
+                <span class="category">Church &bull; Batangas City</span>
+                <h3>Montemaria International Pilgrimage &amp; Conference Center</h3>
+                <p>
+                    Home to the towering Mother of All Asia statue overlooking Batangas Bay, with chapels and viewing areas.
+                </p>
+                <button type="button" data-place="Montemaria International Pilgrimage & Conference Center">
+                    Learn More
+                </button>
+            </div>
+        </div>
+
+        <!-- BEACHES -->
+        <div class="card" data-name="Laiya San Juan Beach">
+            <img src="https://tse3.mm.bing.net/th/id/OIP.-6HejEpWkzbkqfSsJjEzMgHaFq?r=0&pid=Api&h=220&P=0"
+            alt="Laiya, San Juan">
+            <div class="card-content">
+                <span class="category">Beach &bull; San Juan</span>
+                <h3>Laiya, San Juan</h3>
+                <p>
+                    A popular coastal getaway famous for its long stretch of cream-white sand, clear waters, and beachfront resorts.
+                </p>
+                <button type="button" data-place="Laiya, San Juan">
+                    Learn More
+                </button>
+            </div>
+        </div>
+
+        <div class="card" data-name="Matabungkay Beach Lian">
+            <img src="https://tse4.mm.bing.net/th/id/OIP.lu6tYosvUDTrVItp6G2alQAAAA?r=0&pid=Api&h=220&P=0"
+            alt="Matabungkay Beach, Lian">
+            <div class="card-content">
+                <span class="category">Beach &bull; Lian</span>
+                <h3>Matabungkay Beach, Lian</h3>
+                <p>
+                    A classic Batangas beach destination well known for its shallow shoreline, floating bamboo rafts, and laid-back atmosphere.
+                </p>
+                <button type="button" data-place="Matabungkay Beach, Lian">
+                    Learn More
+                </button>
+            </div>
+        </div>
+
+        <div class="card" data-name="Fortune Island Nasugbu Beach">
+            <img src="https://tse1.mm.bing.net/th/id/OIP.zk4veD_PA0-IvgcoiUvmsQHaE8?r=0&pid=Api&h=220&P=0"
+            alt="Fortune Island, Nasugbu">
+            <div class="card-content">
+                <span class="category">Beach &bull; Nasugbu</span>
+                <h3>Fortune Island, Nasugbu</h3>
+                <p>
+                    An island escape featuring turquoise waters, limestone cliffs, and iconic Grecian-style pillars overlooking the sea.
+                </p>
+                <button type="button" data-place="Fortune Island, Nasugbu">
+                    Learn More
+                </button>
+            </div>
+        </div>
+
+        <!-- NATURE -->
+        <div class="card" data-name="Taal Volcano and Lake">
+            <img src="https://tse4.mm.bing.net/th/id/OIP.D8D87lVMl4OWDTAYb8TWOAHaFI?r=0&pid=Api&h=220&P=0"
+            alt="Taal Volcano and Lake">
+            <div class="card-content">
+                <span class="category">Nature &bull; Taal &amp; Talisay</span>
+                <h3>Taal Volcano and Lake</h3>
+                <p>
+                    One of the world's smallest active volcanoes, dramatically surrounded by the scenic waters of Taal Lake.
+                </p>
+                <button type="button" data-place="Taal Volcano and Lake">
+                    Learn More
+                </button>
+            </div>
+        </div>
+
+        <div class="card" data-name="Anilao Mabini">
+            <img src="https://tse4.mm.bing.net/th/id/OIP.oVT3McWtqqQFjQbp3exB3AHaE8?r=0&pid=Api&h=220&P=0"
+            alt="Anilao, Mabini">
+            <div class="card-content">
+                <span class="category">Nature &bull; Mabini</span>
+                <h3>Anilao, Mabini</h3>
+                <p>
+                    Recognized as the birthplace of Philippine scuba diving, rich in vibrant coral reefs and marine biodiversity.
+                </p>
+                <button type="button" data-place="Anilao, Mabini">
+                    Learn More
+                </button>
+            </div>
+        </div>
+
+        <div class="card" data-name="Mount Batulao Nasugbu">
+            <img src="https://tse2.mm.bing.net/th/id/OIP.TW5UCVOHX-hLqpTKWomzfwHaE5?r=0&pid=Api&h=220&P=0"
+            alt="Mount Batulao">
+            <div class="card-content">
+                <span class="category">Nature &bull; Nasugbu</span>
+                <h3>Mount Batulao</h3>
+                <p>
+                    A scenic mountain trail featuring rolling grassland ridges, cool breeze, and panoramic views of Batangas.
+                </p>
+                <button type="button" data-place="Mount Batulao">
+                    Learn More
+                </button>
+            </div>
+        </div>
+
+    </div>
+    <p class="empty-state" id="emptyState">No destinations match your search. Try another place or activity.</p>
+</section>
+
+
+<!-- LOCAL FOOD -->
+<section class="food" id="food">
+
+    <div class="section-title">
+        <h2>Discover Batangas Cuisine</h2>
+        <p>Savor the taste of Batangas</p>
+    </div>
+
+    <div class="destination-grid">
+
+        <div class="card">
+            <img src="bulalo.jpg"
+            alt="Bulalo soup">
+            <div class="card-content">
+                <h3>Batangas Bulalo</h3>
+                <p>
+                    A comforting beef soup known for its rich broth
+                    and tender beef shanks.
+                </p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="Batangas Lomi.jpg"
+            alt="Noodle dish">
+            <div class="card-content">
+                <h3>Batangas Lomi</h3>
+                <p>
+                    A thick noodle dish served with a flavorful
+                    sauce and various toppings.
+                </p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://tse4.mm.bing.net/th/id/OIP.rcKUBOB1wue3K0_Oroba1QHaEy?r=0&pid=Api&h=220&P=0"
+            alt="Coffee">
+            <div class="card-content">
+                <h3>Kapeng Barako</h3>
+                <p>
+                    A locally celebrated coffee known for its
+                    distinct and strong flavor.
+                </p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- TRAVEL TIPS -->
+<section id="tips">
+
+    <div class="section-title">
+        <h2>Travel Tips</h2>
+        <p>Make your Batangas adventure more enjoyable.</p>
+    </div>
+
+    <div class="tips-grid">
+
+        <div class="tip">
+            <h3>Plan Ahead</h3>
+            <p>Research your destination and check travel requirements before leaving.</p>
+        </div>
+
+        <div class="tip">
+            <h3>Prepare Your Budget</h3>
+            <p>Set aside money for transportation, food, entrance fees, and accommodation.</p>
+        </div>
+
+        <div class="tip">
+            <h3>Respect Nature</h3>
+            <p>Keep destinations clean and follow environmental guidelines.</p>
+        </div>
+
+        <div class="tip">
+            <h3>Travel Safely</h3>
+            <p>Check weather conditions and follow local safety advisories.</p>
+        </div>
+
+    </div>
+
+<!-- ABOUT US -->
+<section id="about-us">
+<!-- ABOUT US -->
+<section id="about us">
+    <div class="section-title">
+        <h2>BATANGUIDE</h2>
+        <p>Explore and Discover the Best of Batangas</p>
+    </div>
+
+    <div class="about-us-content">
+        <h2>Who We Are</h2>
+    </div>
+
+        <p class="about-us-content-format">
+            Batanguide is your ultimate travel companion for exploring the beautiful province of Batangas. 
+            Through this platform, we aim to showcase the beauty, culture, and rich heritage of the province's 
+            remarkable destinations, local delicacies, historical landmark, and travel tips. Whether you're a 
+            first-time visitor or a seasoned traveler, Batanguide is here to help you make the most of your 
+            Batangas adventure.
+        </p>
+        
+    </div>
+
+     <div class="about-us-content">
+        <h2>Our Mission</h2>
+    </div>
+
+        <p class="about-us-content-format">
+           We aim to provide users with accessible, informative, and engaging travel information that encourages people
+           to explore Batangas while appreciating its natural beauty, cultural heritage, and local traditions. 
+        </p>
+        
+    </div>
+
+     <div class="about-us-content">
+        <h2>Our Vision</h2>
+    </div>
+
+        <p class="about-us-content-format">
+           We envision Batanguide as a reliable digital platform that promotes Batangas tourism, inspiring travelers to discover 
+           the province's hidden gems, fostering a sense of pride and appreciation for Batangas' unique attractions,
+           and helps preserve the province's identity for future generations.
+        </p>
+        
+    </div>
+
+
+    <div class="contact-content">
+        <h2>Send Us a Message</h2>
+
+    <form> 
+        
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+        </div>
+        <button type="submit">Send Message</button>
+    </form>
+        
+    </div>
+
+
+
+<div
+    class="modal"
+    id="detailsModal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modalTitle"
+    aria-hidden="true">
+    <div class="modal-content">
+        <button class="modal-close" type="button" aria-label="Close details">&times;</button>
+        <h2 id="modalTitle"></h2>
+        <p id="modalDescription"></p>
+    </div>
+</div>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <h2>BATANGUIDE</h2>
+    <p>Discover. Explore. Experience.</p>
+    <p>Your guide to the beauty and culture of Batangas.</p>
+    <p>&copy; 2026 Batanguide> All rights reserved</p>
+</footer>
+
+
+<!-- JAVASCRIPT -->
+<script>
+// Keep destination descriptions here so they are easy to update.
+
+// Navigation Menu
+const menuButton = document.getElementById("menuButton");
+const navigation = document.getElementById("navigation");
+
+// Open and close menu
+menuButton.addEventListener("click", function() {
+    navigation.classList.toggle("active");
+
+    const isOpen = navigation.classList.contains("active");
+
+    menuButton.setAttribute("aria-expanded", isOpen);
+    menuButton.innerHTML = isOpen ? "&times;" : "&#9776;";
+});
+
+// Close menu after selecting a navigation link
+navigation.querySelectorAll("a").forEach(function(link) {
+    link.addEventListener("click", function() {
+        navigation.classList.remove("active");
+        menuButton.setAttribute("aria-expanded", "false");
+        menuButton.innerHTML = "&#9776;";
+    });
+});
+
+// Close menu when clicking outside
+document.addEventListener("click", function(event) {
+    if (!menuButton.contains(event.target) &&
+        !navigation.contains(event.target)) {
+
+        navigation.classList.remove("active");
+        menuButton.setAttribute("aria-expanded", "false");
+        menuButton.innerHTML = "&#9776;";
+    }
+});
+
+const destinationDetails = {
+    "Taal Heritage Town": "Taal is known for its heritage houses, historical landmarks, and cultural traditions.",
+    "Anilao, Mabini": "Anilao is a popular destination for diving and exploring marine life.",
+    "Mount Maculot": "Mount Maculot in Cuenca is a popular hiking destination with scenic views.",
+    "Taal Basilica": "The Minor Basilica of Saint Martin of Tours is a major religious and historical landmark in Taal.",
+    "Fantasy World": "Fantasy World in Lemery is known for its castle-inspired structures."
+};
+
+const searchInput = document.getElementById("searchInput");
+const destinationCards = document.querySelectorAll(".card[data-name]");
+const emptyState = document.getElementById("emptyState");
+const detailsModal = document.getElementById("detailsModal");
+const modalTitle = document.getElementById("modalTitle");
+const modalDescription = document.getElementById("modalDescription");
+
+// Show only destinations that match the search text.
+function searchDestinations() {
+    const searchText = searchInput.value.trim().toLowerCase();
+    let visibleCards = 0;
+
+    destinationCards.forEach(function(card) {
+        const cardText = (card.dataset.name + " " + card.textContent).toLowerCase();
+        const matchesSearch = cardText.includes(searchText);
+
+        card.hidden = !matchesSearch;
+        if (matchesSearch) {
+            visibleCards++;
+        }
+    });
+
+    emptyState.style.display = visibleCards === 0 ? "block" : "none";
+}
+
+// Open a destination's details in the dialog.
+function showDetails(place) {
+    modalTitle.textContent = place;
+    modalDescription.textContent = destinationDetails[place] || "More information coming soon!";
+    detailsModal.setAttribute("aria-hidden", "false");
+}
+
+function closeDetails() {
+    detailsModal.setAttribute("aria-hidden", "true");
+}
+
+searchInput.addEventListener("input", searchDestinations);
+
+document.querySelectorAll("[data-place]").forEach(function(button) {
+    button.addEventListener("click", function() {
+        showDetails(button.dataset.place);
+    });
+});
+
+document.querySelector(".modal-close").addEventListener("click", closeDetails);
+
+detailsModal.addEventListener("click", function(event) {
+    if (event.target === detailsModal) {
+        closeDetails();
+    }
+});
+
+document.addEventListener("keydown", function(event) {
+    if (event.key === "Escape") {
+        closeDetails();
+    }
+});
+</script>
+
+</body>
+</html>
