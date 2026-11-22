@@ -3,22 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> BatanGuide | Batangas Tourism Guide </title>
+    <title>BatanGuide | Batangas Tourism Guide</title>
 
 <style>
     /* Site colors and shared defaults */
     :root {
-    --forest: #073B75;
-    --leaf: #F36B21;
-    --gold: #FFC928;
-    --cream: #e0dad7;
-    --muted: #687786;
+        --forest: #073B75;
+        --leaf: #F36B21;
+        --gold: #FFC928;
+        --cream: #e0dad7;
+        --muted: #687786;
     }
 
-    *   {
+    * {
         box-sizing: border-box;
         margin: 0;
-        padding: -1;
+        padding: 0;
         scroll-behavior: smooth;
     }
 
@@ -28,6 +28,7 @@
         color: #26352d;
         font-family: "Segoe UI", Arial, sans-serif;
         line-height: 1.6;
+        overflow-x: hidden;
     }
 
     a {
@@ -35,137 +36,134 @@
     }
 
     /* Navigation */
-header {
-    align-items: center;
-    background: var(--forest);
-    color: white;
-    display: flex;
-    justify-content: space-between;
-    padding: 16px 7%;
-    position: sticky;
-    top: 0;
-    z-index: 10;
-}
+    header {
+        align-items: center;
+        background: var(--forest);
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        padding: 16px 7%;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+    }
 
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    color: white;
-    font-size: 20px;
-    font-weight: 800;
-    letter-spacing: 1.5px;
-    text-decoration: none;
-}
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: white;
+        font-size: 20px;
+        font-weight: 800;
+        letter-spacing: 1.5px;
+        text-decoration: none;
+    }
 
-.logo img {
-    width: 42px;
-    height: 42px;
-    border-radius: 25%;
-    object-fit: contain;
-}
+    .logo img {
+        width: 42px;
+        height: 42px;
+        border-radius: 25%;
+        object-fit: contain;
+    }
 
-/* Menu Button */
-.menu-button {
-    background: transparent;
-    border: none;
-    color: white;
-    cursor: pointer;
-    font-size: 20px;
-    padding: 5px;
-    align-items: right;
-}
+    /* Menu Button */
+    .menu-button {
+        background: transparent;
+        border: none;
+        color: white;
+        cursor: pointer;
+        font-size: 22px;
+        padding: 5px;
+    }
 
-/* Dropdown Navigation */
-nav {
-    background: rgb(95, 140, 200);
-    display: none;
-    flex-direction: column;
-    gap: 0;
-    min-width: 200px;
-    position: absolute;
-    right: 7%;
-    top: 100%;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    border-radius: 0 0 8px 8px;
-    overflow: hidden;
-}
+    /* Dropdown Navigation */
+    nav {
+        background: rgb(95, 140, 200);
+        display: none;
+        flex-direction: column;
+        gap: 0;
+        min-width: 200px;
+        position: absolute;
+        right: 7%;
+        top: 100%;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        border-radius: 0 0 8px 8px;
+        overflow: hidden;
+    }
 
-nav.active {
-    display: flex;
-}
+    nav.active {
+        display: flex;
+    }
 
-nav a {
-    color: white;
-    font-size: 14px;
-    padding: 13px 20px;
-    text-decoration: none;
-    transition: background 0.2s, color 0.2s;
-}
+    nav a {
+        color: white;
+        font-size: 14px;
+        padding: 13px 20px;
+        text-decoration: none;
+        transition: background 0.2s, color 0.2s;
+    }
 
-nav a:hover,
-nav a:focus-visible {
-    background: var(--gold);
-    color: var(--forest);
-}
+    nav a:hover,
+    nav a:focus-visible {
+        background: var(--gold);
+        color: var(--forest);
+    }
 
     /* Hero banner */
-   .hero {
-    display: flex;
-    align-items: center;
-    min-height: 400px; 
-    padding: 45px 8%;
-    background: linear-gradient(rgba(7, 59, 117, 0.35), rgba(7, 59, 117, 0.35)),
-                url("Untitled Design (9).png") right center / cover no-repeat;
-    color: white;
-}
+    .hero {
+        display: flex;
+        align-items: center;
+        min-height: 400px; 
+        padding: 45px 8%;
+        background: linear-gradient(rgba(7, 59, 117, 0.35), rgba(7, 59, 117, 0.35)),
+                    url("Untitled Design (9).png") right center / cover no-repeat;
+        color: white;
+    }
 
     .hero-content {
-    max-width: 520px;
-}
+        max-width: 520px;
+    }
 
-.hero-content .eyebrow {
-    color: white;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-}
+    .hero-content .eyebrow {
+        color: white;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+    }
 
- .hero-content p {
-    color: white;
-    font-size: 14px;
-    line-height: 1.6;
-    margin-bottom: 20px;
-}
+    .hero-content p {
+        color: white;
+        font-size: 14px;
+        line-height: 1.6;
+        margin-bottom: 20px;
+    }
 
+    .hero-content h1 {
+        font-family: "Arial Black", Arial, sans-serif !important;
+        color: var(--forest);
+        font-size: clamp(36px, 4.5vw, 54px);
+        line-height: 1.1;
+        margin: 10px 0 14px;
+        text-shadow: 0 2px 6px rgba(255, 255, 255, 0.4);
+    }
 
-.hero-content h1 {
-    font-family: "Arial Black", Arial, sans-serif !important;
-    color: var(--forest);
-    font-size: clamp(36px, 4.5vw, 54px); /* Scaled down so it doesn't push the banner taller */
-    line-height: 1.1;
-    margin: 10px 0 14px;
-    text-shadow: 0 2px 6px rgba(255, 255, 255, 0.4);
-}
+    .hero-content a {
+        display: inline-block;
+        background: white;
+        color: var(--forest);
+        padding: 12px 25px;
+        border-radius: 30px;
+        font-size: 14px;
+        font-weight: 700;
+        text-decoration: none;
+        transition: 0.3s ease;
+    }
 
-    
-   .hero-content a {
-    display: inline-block;
-    background: white;
-    color: var(--forest);
-    padding: 12px 25px;
-    border-radius: 30px;
-    font-size: 14px;
-    font-weight: 700;
-    text-decoration: none;
-    transition: 0.3s ease;
-}
-
-.hero-content a:hover {
-    background: var(--gold);
-    transform: translateY(-3px);
-}
+    .hero-content a:hover {
+        background: var(--gold);
+        transform: translateY(-3px);
+    }
 
     /* Shared section headings and spacing */
     section {
@@ -179,7 +177,7 @@ nav a:focus-visible {
     }
 
     .section-title h2 {
-        background: linear-gradient(45deg, rgb(2, 82, 2), rgb(0, 118, 177), rgb(255, 94, 0) );
+        background: linear-gradient(45deg, rgb(2, 82, 2), rgb(0, 118, 177), rgb(255, 94, 0));
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;   
         background-clip: text;
@@ -194,21 +192,19 @@ nav a:focus-visible {
     }
 
     /* About Batangas */
-     
-    .overview-header{
-        background: linear-gradient(45deg, rgb(2, 82, 2), rgb(0, 118, 177), rgb(255, 94, 0) );
+    .overview-header {
+        background: linear-gradient(45deg, rgb(2, 82, 2), rgb(0, 118, 177), rgb(255, 94, 0));
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;   
         background-clip: text;
         font-size: clamp(28px, 4vw, 38px);
         letter-spacing: -.5px;
         line-height: 1.2;
-        margin-bottom: 10px;
         margin: auto;
+        margin-bottom: 10px;
         max-width: 700px;
         text-align: center;
     }
-
 
     .overview-content {
         line-height: 1.9;
@@ -217,8 +213,8 @@ nav a:focus-visible {
         margin: auto;
         max-width: 1000px;
         text-align: justify;
-        
     }
+
     /* Destination search and cards */
     .search-container {
         margin-bottom: 30px;
@@ -298,10 +294,14 @@ nav a:focus-visible {
     .card-content button,
     .card-content .button-link {
         background: var(--forest);
+        border: none;
+        border-radius: 4px;
         color: rgb(246, 245, 245);
+        cursor: pointer;
         font-size: 13px;
         margin-top: 15px;
         padding: 10px 16px;
+        transition: background 0.2s, color 0.2s;
     }
 
     .card-content button:hover,
@@ -311,7 +311,7 @@ nav a:focus-visible {
     }
 
     .empty-state {
-        color: var(--cream);
+        color: var(--muted);
         display: none;
         grid-column: 1 / -1;
         padding: 24px;
@@ -324,79 +324,82 @@ nav a:focus-visible {
     }
 
     /* Travel tips */
-.tips-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 24px;
-}
+    .tips-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 24px;
+    }
 
-.tip {
-    background-color: #ffffff !important;
-    border: 2px solid rgb(44, 48, 52) !important;
-    border-color: #e9eee8 !important;
-    border-radius: 12px !important;
-    padding: 28px 22px !important;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+    .tip {
+        background-color: #ffffff !important;
+        border: 2px solid #e9eee8 !important;
+        border-radius: 12px !important;
+        padding: 28px 22px !important;
+        text-align: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
 
-.tip:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.16) !important;
-}
+    .tip:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.16) !important;
+    }
 
     .section-border {
-    width: 100%;
-    height: 36px; /* Adjust height if you want the strip thicker or thinner */
-    background: url("border.png") bottom center / cover no-repeat;
-    display: block;
-}
+        width: 100%;
+        height: 36px;
+        background: url("border.png") bottom center / cover no-repeat;
+        display: block;
+    }
 
-#about-us {
-    background-color: #ffffff !important;
-    color: #26352d !important;
-    padding: 45px 3% !important;
-}
+    /* About Us */
+    #about-us {
+        background-color: #ffffff !important;
+        color: #26352d !important;
+        padding: 60px 8% !important;
+    }
 
-.about-us-content,
-.about-us-content-format {
-    max-width: none !important;
-    width: 100% !important;
-}
+    .about-us-content,
+    .about-us-content-format {
+        max-width: 1000px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+    }
 
-.about-us-content {
-    color: var(--forest) !important;
-    margin: 0 0 6px 0 !important;
-}
+    .about-us-content {
+        color: var(--forest) !important;
+        margin-bottom: 6px;
+    }
 
-.about-us-content h2 {
-    font-size: 23px;
-    margin-bottom: 4px;
-}
+    .about-us-content h2 {
+        font-size: 23px;
+        margin-bottom: 4px;
+    }
 
-.about-us-content-format {
-    color: #526273 !important;
-    margin: 0 0 22px 0 !important;
-    line-height: 1.8;
-    text-align: justify;
-    font-size: 16px;
-}
+    .about-us-content-format {
+        color: #526273 !important;
+        margin-bottom: 24px;
+        line-height: 1.8;
+        text-align: justify;
+        font-size: 16px;
+    }
 
+    /* Contact Form */
     .contact-content {
-        flex: 1.5;
         background: white;
-        padding: 21px;
+        padding: 28px;
         border-radius: 8px;
         box-shadow: 0 5px 20px rgba(29, 49, 38, .08);
         text-align: center;
-        margin-bottom: 20px;
+        max-width: 700px;
+        margin: 30px auto 0;
     }
 
-    .contact-content h3 {
+    .contact-content h2 {
         color: var(--forest);
-        font-size: 20px;
+        font-size: 22px;
         line-height: 1.3;
-        margin-bottom: 8px;
+        margin-bottom: 16px;
     }
 
     .contact-content p {
@@ -422,6 +425,7 @@ nav a:focus-visible {
         padding: 10px;
         border: 1px solid #ccc;
         border-radius: 4px;
+        font: inherit;
     }
 
     .form-group textarea {
@@ -432,10 +436,12 @@ nav a:focus-visible {
         background: var(--forest);
         color: white;
         font-size: 14px;
-        padding: 10px 20px;
+        padding: 12px 24px;
         border: none;
         border-radius: 4px;
         cursor: pointer;
+        font-weight: 600;
+        transition: background 0.2s, color 0.2s;
     }
 
     .contact-content button:hover {
@@ -445,19 +451,14 @@ nav a:focus-visible {
 
     /* Footer */
     footer {
-    width: 100vw;
-    position: relative;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
-    margin-bottom: -80px; /* Pulls it down to eliminate the white gap at the very bottom */
-    background: var(--forest);
-    color: white;
-    text-align: center;
-    padding: 35px 15px;
-    line-height: 1.9;
-}
+        width: 100%;
+        background: var(--forest);
+        color: white;
+        text-align: center;
+        padding: 35px 15px;
+        line-height: 1.9;
+    }
+
     footer h2 {
         font-size: 20px;
         letter-spacing: 1px;
@@ -517,37 +518,84 @@ nav a:focus-visible {
     /* Smaller screens */
     @media (max-width: 700px) {
         header {
-            align-items: flex-start;
-            flex-direction: column;
-            gap: 12px;
-            padding: 15px 6%;
+            align-items: center;
+            flex-direction: row;
+            justify-content: space-between;
+            padding: 14px 6%;
+        }
+
+        .logo {
+            font-size: 18px;
+        }
+
+        .logo img {
+            width: 36px;
+            height: 36px;
         }
 
         nav {
-            gap: 9px 18px;
+            left: 0;
+            right: 0;
+            width: 100%;
+            border-radius: 0 0 10px 10px;
         }
 
         nav a {
-            font-size: 13px;
+            font-size: 15px;
+            padding: 14px 6%;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
         }
 
         .hero {
-             min-height: 350px;
-        height: auto;
-        padding: 55px 7%;
-        background-position: center;
+            min-height: 340px;
+            height: auto;
+            padding: 48px 6%;
+            background: linear-gradient(rgba(7, 59, 117, 0.65), rgba(7, 59, 117, 0.65)),
+                        url("Untitled Design (9).png") center / cover no-repeat;
         }
 
         .hero-content h1 {
-            font-size: 40px;
+            color: white;
+            text-shadow: none;
+            font-size: 30px;
         }
 
         .hero-content p {
-        font-size: 14px;
-    } 
+            font-size: 14px;
+        }
 
-        section {
-            padding: 56px 6%;
+        section,
+        #about-us {
+            padding: 48px 6% !important;
+        }
+
+        .overview-content {
+            font-size: 16px;
+            line-height: 1.75;
+            text-align: left;
+        }
+
+        .about-us-content-format {
+            text-align: left;
+            font-size: 15px;
+        }
+
+        .destination-grid,
+        .tips-grid {
+            grid-template-columns: 1fr;
+            gap: 18px;
+        }
+
+        .contact-content {
+            padding: 22px 18px;
+        }
+
+        .modal-content {
+            padding: 24px 20px;
+        }
+
+        footer {
+            padding: 30px 6%;
         }
     }
 
@@ -568,9 +616,9 @@ nav a:focus-visible {
 <!-- NAVIGATION -->
 <header>
     <a class="logo" href="#home">
-    <img src="logo.png.jpg" alt="BatanGuide Logo">
-    <span>BATANGUIDE</span>
-</a>
+        <img src="logo.png.jpg" alt="BatanGuide Logo">
+        <span>BATANGUIDE</span>
+    </a>
 
     <button class="menu-button" id="menuButton"
         aria-label="Open navigation menu"
@@ -617,10 +665,8 @@ nav a:focus-visible {
     </div>
 </section>
 
-
 <!-- DESTINATIONS -->
 <section id="destinations">
-
     <div class="section-title">
         <h2>Explore Destinations</h2>
         <p>Find your next adventure in Batangas.</p>
@@ -777,10 +823,8 @@ nav a:focus-visible {
     <p class="empty-state" id="emptyState">No destinations match your search. Try another place or activity.</p>
 </section>
 
-
 <!-- LOCAL FOOD -->
 <section class="food" id="food">
-
     <div class="section-title">
         <h2>Discover Batangas Cuisine</h2>
         <p>Savor the taste of Batangas</p>
@@ -827,10 +871,8 @@ nav a:focus-visible {
     </div>
 </section>
 
-
 <!-- TRAVEL TIPS -->
 <section id="tips">
-
     <div class="section-title">
         <h2>Travel Tips</h2>
         <p>Make your Batangas adventure more enjoyable.</p>
@@ -859,11 +901,10 @@ nav a:focus-visible {
         </div>
 
     </div>
+</section>
 
 <!-- ABOUT US -->
 <section id="about-us">
-<!-- ABOUT US -->
-<section id="about us">
     <div class="section-title">
         <h2>BATANGUIDE</h2>
         <p>Explore and Discover the Best of Batangas</p>
@@ -871,8 +912,6 @@ nav a:focus-visible {
 
     <div class="about-us-content">
         <h2>Who We Are</h2>
-    </div>
-
         <p class="about-us-content-format">
             Batanguide is your ultimate travel companion for exploring the beautiful province of Batangas. 
             Through this platform, we aim to showcase the beauty, culture, and rich heritage of the province's 
@@ -880,71 +919,57 @@ nav a:focus-visible {
             first-time visitor or a seasoned traveler, Batanguide is here to help you make the most of your 
             Batangas adventure.
         </p>
-        
     </div>
 
-     <div class="about-us-content">
+    <div class="about-us-content">
         <h2>Our Mission</h2>
-    </div>
-
         <p class="about-us-content-format">
            We aim to provide users with accessible, informative, and engaging travel information that encourages people
            to explore Batangas while appreciating its natural beauty, cultural heritage, and local traditions. 
         </p>
-        
     </div>
 
-     <div class="about-us-content">
+    <div class="about-us-content">
         <h2>Our Vision</h2>
-    </div>
-
         <p class="about-us-content-format">
            We envision Batanguide as a reliable digital platform that promotes Batangas tourism, inspiring travelers to discover 
            the province's hidden gems, fostering a sense of pride and appreciation for Batangas' unique attractions,
            and helps preserve the province's identity for future generations.
         </p>
-        
     </div>
-
 
     <div class="contact-content">
         <h2>Send Us a Message</h2>
-
-    <form> 
-        
-        <div class="form-group">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
-        </div>
-        <div class="form-group">
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-        </div>
-        <div class="form-group">
-            <label for="message">Message:</label>
-            <textarea id="message" name="message" rows="5" required></textarea>
-        </div>
-        <button type="submit">Send Message</button>
-    </form>
-        
+        <form> 
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+            <button type="submit">Send Message</button>
+        </form>
     </div>
 
-
-
-<div
-    class="modal"
-    id="detailsModal"
-    role="dialog"
-    aria-modal="true"
-    aria-labelledby="modalTitle"
-    aria-hidden="true">
-    <div class="modal-content">
-        <button class="modal-close" type="button" aria-label="Close details">&times;</button>
-        <h2 id="modalTitle"></h2>
-        <p id="modalDescription"></p>
+    <div
+        class="modal"
+        id="detailsModal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modalTitle"
+        aria-hidden="true">
+        <div class="modal-content">
+            <button class="modal-close" type="button" aria-label="Close details">&times;</button>
+            <h2 id="modalTitle"></h2>
+            <p id="modalDescription"></p>
+        </div>
     </div>
-</div>
-
 </section>
 
 <!-- FOOTER -->
@@ -952,14 +977,11 @@ nav a:focus-visible {
     <h2>BATANGUIDE</h2>
     <p>Discover. Explore. Experience.</p>
     <p>Your guide to the beauty and culture of Batangas.</p>
-    <p>&copy; 2026 Batanguide> All rights reserved</p>
+    <p>&copy; 2026 Batanguide. All rights reserved.</p>
 </footer>
-
 
 <!-- JAVASCRIPT -->
 <script>
-// Keep destination descriptions here so they are easy to update.
-
 // Navigation Menu
 const menuButton = document.getElementById("menuButton");
 const navigation = document.getElementById("navigation");
